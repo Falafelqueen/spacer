@@ -143,6 +143,44 @@ border-bottom-left-radius: 25px;
 }
 
 
+// selected tab
+
+.active-tab {
+  a{
+    background-color: $white;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    span {
+      color: $blue
+    }
+  }
+  a::before {
+    content: "";
+    position: absolute;
+    right: 0;
+      top: -50px;
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 35px 35px 0 15px white;
+  }
+    a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -50px;
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 35px -35px 0 15px white;
+    }
+}
+
+
 // this is the class for the input in application.html.erb
 .container-input-right-side {
   margin-left: 250px;

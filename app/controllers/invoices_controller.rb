@@ -41,7 +41,8 @@ class InvoicesController < ApplicationController
 
     if @invoice.save!
       # calculating price
-      number_of_days = (@invoice.end_date - @invoice.start_date).to_i + 1
+      day_difference = (@invoice.end_date - @invoice.start_date).to_i
+      number_of_days = day_difference == 0  ? day_difference + 1 : day_difference
       total = parking_spaces.map{ |e| (e.garage.price * number_of_days) if e.garage.price.present? }.sum
       @invoice.update(price: total)
       # creating stripe order

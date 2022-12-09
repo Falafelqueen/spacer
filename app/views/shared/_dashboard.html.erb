@@ -11,13 +11,13 @@
           <span class="title">Spacer</span>
         </a> %>
       </li>
-      <li>
+      <li class="<%='active-tab' if controller_name == 'dashboards'%>">
         <%= link_to dashboards_path, data: {turbo_method: :get} do %>
           <span class="icon"><i class="fa-solid fa-house"></i></span>
           <span class="title">Dashboard</span>
         <% end %>
       </li>
-      <li>
+      <li class="<%='active-tab' if controller_name == 'garages'%>">
         <% if user_signed_in? && current_user.garages.empty? %>
           <%= link_to new_garage_path, data: {turbo_method: :get} do %>
             <span class="icon"><i class="fa-sharp fa-solid fa-border-all"></i></span>
@@ -30,19 +30,19 @@
           <% end %>
         <% end %>
       </li>
-      <li>
+      <li class="<%='active-tab' if controller_name == 'clients'%>">
         <%= link_to clients_path, data: {turbo_method: :get} do  %>
           <span class="icon"><i class="fa-solid fa-people-group"></i></span>
           <span class="title">My Clients</span>
         <% end %>
       </li>
-      <li>
+      <li class="<%='active-tab' if controller_name == 'invoices'%>">
         <%= link_to new_invoice_path, data: {turbo_method: :get} do  %>
           <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
           <span class="title">Invoicing</span>
         <% end %>
       </li>
-      <li>
+      <li class="<%='active-tab' if controller_name == 'registrations'%>">
         <%= link_to edit_user_registration_path, data: {turbo_method: :get} do %>
           <span class="icon"><i class="fa-solid fa-gear"></i></span>
           <span class="title">Settings</span>
